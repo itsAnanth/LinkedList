@@ -1,5 +1,12 @@
 #include <iostream>
 
+
+/**
+ * Basic representation of a linked list
+ * 
+ * [1, pointer to 2] (head) -> [2, pointer to 3] -> [3, pointer to null] (tail)
+ */
+
 struct Node {
     int data;
     Node * next;
