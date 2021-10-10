@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <vector>
 
 /**
  * Basic representation of a linked list
@@ -23,6 +23,7 @@ class LinkedList {
         void push(int x); // add element to the end (javascript function names lol)
         void unshift(int x); // add element to the beginning
         void print(); // prints all nodes in a list
+        std::vector<int> toVector();
 };
 
 int main() {
@@ -32,6 +33,9 @@ int main() {
     list.push(1);
     list.push(5);
     list.print();
+    std::vector<int> vectorForm = list.toVector();
+    for (auto i : vectorForm)
+        std::cout << i << " ";
 };
 
 
@@ -77,4 +81,17 @@ void LinkedList::print() {
     }
 
     std::cout << std::endl;
+}
+
+std::vector<int> LinkedList::toVector() {
+    std::vector<int> arr;
+    Node * current = head;
+    if (current == NULL) 
+        return arr;
+    while (current != NULL) {
+        arr.push_back(current -> data);
+        current = current -> next;
+    }
+
+    return arr;
 }
