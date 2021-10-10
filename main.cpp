@@ -23,7 +23,8 @@ class LinkedList {
         void push(int x); // add element to the end (javascript function names lol)
         void unshift(int x); // add element to the beginning
         void print(); // prints all nodes in a list
-        std::vector<int> toVector();
+        std::vector<int> toVector(); // return an vector with all nodes
+        void reverse();
 };
 
 int main() {
@@ -32,10 +33,13 @@ int main() {
 
     list.push(1);
     list.push(5);
+    list.push(6);
     list.print();
-    std::vector<int> vectorForm = list.toVector();
-    for (auto i : vectorForm)
-        std::cout << i << " ";
+    // std::vector<int> vectorForm = list.toVector();
+    // for (auto i : vectorForm)
+    //     std::cout << i << " ";
+    list.reverse();
+    list.print();
 };
 
 
@@ -94,4 +98,21 @@ std::vector<int> LinkedList::toVector() {
     }
 
     return arr;
+}
+
+/** head
+ *    1 -> 2 -> 3 -> 
+*/
+
+void LinkedList::reverse() {
+    Node * current = head;
+    Node * previous = NULL;
+    Node * temp = NULL;
+    while (current != NULL) {
+        temp = current->next;
+        current->next = previous;
+        previous = current;
+        current = temp;
+    }
+    head = previous;
 }
