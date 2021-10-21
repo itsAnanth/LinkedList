@@ -1,4 +1,4 @@
 # Simple LinkedList
 
-This repository shows my attempt in creating a LinkedList in c++
-As of now there are only two methods, push and unshift to add elements to the end and beginning respectively :)
+This repository shows my attempt in implementing a singular LinkedList in different languages.
+As of now there are push, unshift and reverse methods.
